@@ -9,15 +9,16 @@ set ai
 set shortmess+=A
 syntax off
 set shiftwidth=4
+set tabstop=4
 
 augroup filetype
   autocmd BufNewFile,BufRead *.txt set filetype=human
   autocmd BufNewFile,BufRead *.c++ set filetype=cpp
 augroup END
 
-autocmd FileType make setlocal noexpandtab tabstop=4 shiftwidth=4
+autocmd FileType make setlocal noexpandtab
 
-autocmd FileType human,cpp,c setlocal expandtab
+autocmd FileType human,cpp,c,py,go,hs setlocal expandtab
 
 colorscheme desert
 
