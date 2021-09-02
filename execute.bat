@@ -34,8 +34,6 @@ set GOLANG_BIN=go
 
 set CC_EXT=.c
 set CPP_EXT=.c++
-set CPP11_EXT=.cpp
-set CPP14_EXT=.cxx
 set GHC_EXT=.hs
 set PY_EXT=.py
 set RUBY_EXT=.rb
@@ -44,8 +42,6 @@ set JAVA_EXT=.java
 set GOLANG_EXT=.go
 
 IF /I %FILE_EXT% == %CPP_EXT% GOTO __CPPEXEC
-IF /I %FILE_EXT% == %CPP11_EXT% GOTO __CPP11EXEC
-IF /I %FILE_EXT% == %CPP14_EXT% GOTO __CPP14EXEC
 IF /I %FILE_EXT% == %CC_EXT%  GOTO __CEXEC
 IF /I %FILE_EXT% == %GHC_EXT% GOTO __HSKEXEC
 IF /I %FILE_EXT% == %PY_EXT% GOTO __PYTHONEXEC
@@ -63,26 +59,6 @@ GOTO END
 findstr /I "sfml" %FILENAME_EXT% > NUL
 if ERRORLEVEL 1 (
     echo "No SFML ..." >NUL
-) else (
-    set PATH="%PATH%";C:\MyPrograms\lib\SFML-2.5.1\bin
-)
-call %FILENAME%
-GOTO END
-
-:__CPP11EXEC
-findstr /I "sfml" %FILENAME_EXT% > NUL
-if ERRORLEVEL 1 (
-    echo "No SFML ...">NUL
-) else (
-    set PATH="%PATH%";C:\MyPrograms\lib\SFML-2.5.1\bin
-)
-call %FILENAME%
-GOTO END
-
-:__CPP14EXEC
-findstr /I "sfml" %FILENAME_EXT% > NUL
-if ERRORLEVEL 1 (
-    echo "No SFML ...">NUL
 ) else (
     set PATH="%PATH%";C:\MyPrograms\lib\SFML-2.5.1\bin
 )
